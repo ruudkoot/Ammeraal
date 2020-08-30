@@ -1,0 +1,5 @@
+De volgende uitvoer is hexadecimaal:
+u =         00000000 ffffffff
+v = u + u = 00000001 fffffffe
+w = 1 + v = 00000001 ffffffff
+w + 1 =     00000002 00000000
