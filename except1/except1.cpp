@@ -21,7 +21,7 @@ int main() {
     cout << "Geef x: ";
     cin >> x;
     try { reken(x); }
-    catch (std::exception const& e) { cout << "catch (std::exception const& e) " << endl; }
+    catch (std::exception const&) { cout << "catch (std::exception const&) " << endl; }
     catch (int const& i) { cout << "catch (int const& i) " << i << endl; }
     cout << "Einde." << endl;
     return 0;

@@ -10,38 +10,22 @@
 #include <vector>
 using namespace std;
 
-#define AANTAL 1000
-#define MAX 1200
+struct voorbeeld {
+	voorbeeld() : x(0.0f), y(0.0f) {}
+	float x, y;
+	void print()const {
+		cout << x << " " << y << endl;
+	}
+};
 
 int main() {
-#if !defined(__cplusplus)
-#error This is not C++
-#endif
-#if 0
-	i = 123;	/* 123 is een willekeurig gekozen getal */
-	j = i + 1;
-#endif
-	string s;
-#if AANTAL < 100
-	s = "A";
-#elif AANTAL < 1000
-	s = "B";
-#else
-	s = "C";
-#endif
-	cout << s << endl;
-#if !defined(PI)
-#define PI 3.14159265358979
-#endif
-//#undef PI
-#ifndef PI
-#define PI 1.1415
-#endif
-	cout << PI << endl;
-	cout << __LINE__ << endl;
-	cout << __FILE__ << endl;
-	cout << __DATE__ << endl;
-	cout << __TIME__ << endl;
-	cout << _MSC_VER << endl;
+	voorbeeld u, v;
+	u.print();
+	float* pfloat = &u.x;
+	*pfloat = 0.123f;
+	u.print();
+	void (voorbeeld:: * pf)()const;
+	pf = &voorbeeld::print;
+	(u.*pf)();
 	return 0;
 }
