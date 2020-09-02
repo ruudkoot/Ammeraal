@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <climits>
 #include <cmath>
+#include <complex>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
@@ -10,22 +11,15 @@
 #include <vector>
 using namespace std;
 
-struct voorbeeld {
-	voorbeeld() : x(0.0f), y(0.0f) {}
-	float x, y;
-	void print()const {
-		cout << x << " " << y << endl;
-	}
-};
+#define PI 3.1415
 
 int main() {
-	voorbeeld u, v;
-	u.print();
-	float* pfloat = &u.x;
-	*pfloat = 0.123f;
-	u.print();
-	void (voorbeeld:: * pf)()const;
-	pf = &voorbeeld::print;
-	(u.*pf)();
+	double x = 3.0;
+	complex<double> z(1, 2), z1 = polar(0.5 * PI, 0.5 * PI);
+	int n = 2;
+	cout << pow(z, n) << endl;
+	cout << pow(z, x) << endl;
+	cout << pow(z, z1) << endl;
+	cout << pow(x, z) << endl;
 	return 0;
 }
