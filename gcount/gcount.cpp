@@ -3,23 +3,25 @@
 #include <cmath>
 #include <complex>
 #include <cstdlib>
-#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
 #include <list>
 #include <map>
-#include <sstream>
 #include <string>
 #include <vector>
 using namespace std;
 
 int main() {
-	double x;
-	string s = "1.2e-3";
-	istringstream istr(s);
-	ostringstream ostr;
-	istr >> x;
-	ostr << x;
-	cout << ostr.str() << endl;
+	char s[100];
+	ifstream f("test.txt");
+	f.read(s, 5);
+	s[f.gcount()] = '\0';
+	cout << f.gcount() << endl;
+	cout << s << endl;
+	f.read(s, 100);
+	s[f.gcount()] = '\0';
+	cout << f.gcount() << endl;
+	cout << s << endl;
 	return 0;
 }
